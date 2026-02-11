@@ -14,6 +14,24 @@ body{
     background:#0d0d0d;
 }
 
+/* بانر متحرك */
+.marquee{
+    background:linear-gradient(45deg,#d4af37,#b8952f);
+    color:black;
+    padding:10px;
+    font-weight:bold;
+    overflow:hidden;
+    white-space:nowrap;
+}
+.marquee span{
+    display:inline-block;
+    animation:move 12s linear infinite;
+}
+@keyframes move{
+    from{transform:translateX(100%);}
+    to{transform:translateX(-100%);}
+}
+
 .section{
     margin:40px auto;
     width:90%;
@@ -55,59 +73,63 @@ button{
     font-weight:bold;
     margin-top:10px;
 }
-button:hover{
-    background:#b8952f;
+
+.social{
+    margin:40px 0;
+}
+.social a{
+    display:inline-block;
+    margin:8px;
+    padding:10px 15px;
+    background:#222;
+    color:#d4af37;
+    text-decoration:none;
+    border-radius:6px;
+    font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- XENA -->
-<div class="section">
-  <img src="https://play-lh.googleusercontent.com/TD4I-kti7jFfQKxtKL29cPT2VvOVFz889B-xRI5oJongYzIuS7djOvbIX2sYjczsJBI" class="app-img" alt="Xena Lite">
-  <h2>شحن Xena Lite</h2>
-  <input type="text" id="xena_id" placeholder="اكتب ID هنا">
-  <input type="number" id="xena_amount" placeholder="اكتب المبلغ هنا">
-  <button onclick="sendXena()">🚀 تنفيذ الطلب</button>
+<div class="marquee">
+<span>🔥 وكالة الفرسان للشحن – سرعة ⚡ أمان 💎 تنفيذ فوري 🚀</span>
 </div>
 
-<!-- AHLAN -->
+<!-- XENA (الأزرق) -->
 <div class="section">
-  <img src="https://play-lh.googleusercontent.com/fglaX6qREt6w8-QKDeAVBpgIWOecb4u2zjFF27fLpcSVoDVtB2rfTueoOIPADFsdJi-w7A8kElNpdwsoqaD4Ug" class="app-img" alt="Ahlan">
+  <img src="https://play-lh.googleusercontent.com/TD4I-kti7jFfQKxtKL29cPT2VvOVFz889B-xRI5oJongYzIuS7djOvbIX2sYjczsJBI" class="app-img">
+  <h2>شحن Xena</h2>
+  <input type="text" id="xena_id" placeholder="اكتب ID هنا">
+  <input type="number" id="xena_amount" placeholder="اكتب المبلغ هنا">
+  <button onclick="playSound(); sendXena();">🚀 تنفيذ الطلب</button>
+</div>
+
+<!-- AHLAN (القطة) -->
+<div class="section">
+  <img src="https://play-lh.googleusercontent.com/fglaX6qREt6w8-QKDeAVBpgIWOecb4u2zjFF27fLpcSVoDVtB2rfTueoOIPADFsdJi-w7A8kElNpdwsoqaD4Ug" class="app-img">
   <h2>شحن Ahlan</h2>
   <input type="text" id="ahlan_id" placeholder="اكتب ID هنا">
   <input type="number" id="ahlan_amount" placeholder="اكتب المبلغ هنا">
-  <button onclick="sendAhlan()">🚀 تنفيذ الطلب</button>
+  <button onclick="playSound(); sendAhlan();">🚀 تنفيذ الطلب</button>
 </div>
 
+<div class="social">
+  <a href="https://www.facebook.com/share/14VeeoCR9qf/" target="_blank">فيسبوك</a>
+  <a href="https://www.instagram.com/fares_al_qadasy" target="_blank">انستقرام</a>
+  <a href="https://www.tiktok.com/@fares.96955" target="_blank">تيك توك</a>
+  <a href="https://www.snapchat.com/add/frslthry19" target="_blank">سناب شات</a>
+</div>
+
+<audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio>
+
 <script>
+function playSound(){
+    document.getElementById("clickSound").play();
+}
+
 function sendXena(){
     var id = document.getElementById("xena_id").value;
     var amount = document.getElementById("xena_amount").value;
-
-    if(id === "" || amount === ""){
-        alert("يرجى إدخال ID والمبلغ");
-        return;
-    }
-
-    var message = "طلب شحن Xena Lite\nID: " + id + "\nالمبلغ: " + amount;
-    window.location.href = "https://wa.me/967734722459?text=" + encodeURIComponent(message);
-}
-
-function sendAhlan(){
-    var id = document.getElementById("ahlan_id").value;
-    var amount = document.getElementById("ahlan_amount").value;
-
-    if(id === "" || amount === ""){
-        alert("يرجى إدخال ID والمبلغ");
-        return;
-    }
-
-    var message = "طلب شحن Ahlan\nID: " + id + "\nالمبلغ: " + amount;
-    window.location.href = "https://wa.me/967734722459?text=" + encodeURIComponent(message);
-}
-</script>
-
-</body>
-</html>
+    if(id==="" || amount===""){ alert("يرجى إدخال ID والمبلغ"); return; }
+    var msg="طلب شحن Xena\nID: "+id+"\nالمبلغ: "+
