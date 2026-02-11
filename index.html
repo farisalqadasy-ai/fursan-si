@@ -12,52 +12,6 @@ body{
     text-align:center;
     color:white;
     background:#0d0d0d;
-    position:relative;
-    overflow-x:hidden;
-}
-
-/* خلفية فلوس خفيفة */
-body::before{
-    content:"";
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:url('https://i.imgur.com/8Km9tLL.png') repeat;
-    opacity:0.05;
-    z-index:-1;
-}
-
-/* بانر متحرك */
-.marquee{
-    background:linear-gradient(45deg,#d4af37,#b8952f);
-    color:black;
-    padding:10px;
-    font-weight:bold;
-    overflow:hidden;
-    white-space:nowrap;
-}
-.marquee span{
-    display:inline-block;
-    animation:move 12s linear infinite;
-}
-@keyframes move{
-    from{transform:translateX(100%);}
-    to{transform:translateX(-100%);}
-}
-
-header{
-    background:#000;
-    padding:25px;
-}
-header h1{
-    color:#d4af37;
-    margin:0;
-}
-header p{
-    color:#aaa;
-    margin-top:8px;
 }
 
 .section{
@@ -66,138 +20,68 @@ header p{
     max-width:420px;
     background:#1a1a1a;
     padding:25px;
-    border-radius:12px;
+    border-radius:15px;
     box-shadow:0 0 20px rgba(212,175,55,0.2);
 }
 
 h2{
     color:#d4af37;
-    margin-top:10px;
-}
-
-.app-box{
-    background:#111;
-    padding:15px;
-    border-radius:20px;
-    display:inline-block;
-    box-shadow:0 0 25px rgba(212,175,55,0.2);
-    margin-bottom:15px;
+    margin-top:15px;
 }
 
 .app-img{
-    width:95px;
-    border-radius:22px;
+    width:100px;
+    border-radius:25px;
     border:2px solid #d4af37;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom:15px;
+    box-shadow:0 0 15px rgba(212,175,55,0.4);
 }
 
-.app-img:hover{
-    transform: scale(1.08);
-    box-shadow:0 0 20px rgba(212,175,55,0.6);
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
 }
 
 button{
-    position:relative;
+    width:100%;
     background:#d4af37;
     border:none;
-    padding:12px 25px;
-    border-radius:6px;
+    padding:12px;
+    border-radius:8px;
     cursor:pointer;
     font-weight:bold;
-    overflow:hidden;
+    margin-top:10px;
 }
-
-button::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-75%;
-    width:50%;
-    height:100%;
-    background:rgba(255,255,255,0.4);
-    transform:skewX(-20deg);
-    animation:shine 3s infinite;
-}
-
-@keyframes shine{
-    0%{left:-75%;}
-    100%{left:125%;}
-}
-
-.social{
-    margin-top:30px;
-}
-.social a{
-    display:inline-block;
-    margin:8px;
-    padding:10px 15px;
-    background:#222;
-    color:#d4af37;
-    text-decoration:none;
-    border-radius:5px;
-    font-size:14px;
-}
-
-footer{
-    margin-top:40px;
-    padding:20px;
-    font-size:13px;
-    color:#666;
+button:hover{
+    background:#b8952f;
 }
 </style>
 </head>
 
 <body>
 
-<div class="marquee">
-<span>🔥 وكالة الفرسان للشحن – سرعة ⚡ أمان 💎 تنفيذ فوري 🚀 – عروض مستمرة 🔥</span>
-</div>
-
-<header>
-<h1>وكالة الفرسان للشحن</h1>
-<p>أكثر من 500 عملية شحن ناجحة ✔ خدمة متاحة 24 ساعة</p>
-</header>
-
+<!-- XENA -->
 <div class="section">
-  <div class="app-box">
-    <img src="https://play-lh.googleusercontent.com/TD4I-kti7jFfQKxtKL29cPT2VvOVFz889B-xRI5oJongYzIuS7djOvbIX2sYjczsJBI" class="app-img" alt="Xena Lite">
-  </div>
+  <img src="https://play-lh.googleusercontent.com/TD4I-kti7jFfQKxtKL29cPT2VvOVFz889B-xRI5oJongYzIuS7djOvbIX2sYjczsJBI" class="app-img" alt="Xena Lite">
   <h2>شحن Xena Lite</h2>
   <input type="text" id="xena_id" placeholder="اكتب ID هنا">
   <input type="number" id="xena_amount" placeholder="اكتب المبلغ هنا">
-  <button onclick="playSound(); sendXena();">🚀 تنفيذ الطلب</button>
+  <button onclick="sendXena()">🚀 تنفيذ الطلب</button>
 </div>
 
+<!-- AHLAN -->
 <div class="section">
-  <div class="app-box">
-    <img src="https://play-lh.googleusercontent.com/fglaX6qREt6w8-QKDeAVBpgIWOecb4u2zjFF27fLpcSVoDVtB2rfTueoOIPADFsdJi-w7A8kElNpdwsoqaD4Ug" class="app-img" alt="Ahlan">
-  </div>
+  <img src="https://play-lh.googleusercontent.com/fglaX6qREt6w8-QKDeAVBpgIWOecb4u2zjFF27fLpcSVoDVtB2rfTueoOIPADFsdJi-w7A8kElNpdwsoqaD4Ug" class="app-img" alt="Ahlan">
   <h2>شحن Ahlan</h2>
   <input type="text" id="ahlan_id" placeholder="اكتب ID هنا">
   <input type="number" id="ahlan_amount" placeholder="اكتب المبلغ هنا">
-  <button onclick="playSound(); sendAhlan();">🚀 تنفيذ الطلب</button>
+  <button onclick="sendAhlan()">🚀 تنفيذ الطلب</button>
 </div>
-
-<div class="social">
-<h2>تابعنا على</h2>
-<a href="https://www.facebook.com/share/14VeeoCR9qf/" target="_blank">فيسبوك</a>
-<a href="https://www.instagram.com/fares_al_qadasy" target="_blank">انستقرام</a>
-<a href="https://www.tiktok.com/@fares.96955" target="_blank">تيك توك</a>
-<a href="https://www.snapchat.com/add/frslthry19" target="_blank">سناب شات</a>
-</div>
-
-<footer>
-© 2026 وكالة الفرسان – جميع الحقوق محفوظة
-</footer>
-
-<audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio>
 
 <script>
-function playSound(){
-    var sound = document.getElementById("clickSound");
-    sound.play();
-}
-
 function sendXena(){
     var id = document.getElementById("xena_id").value;
     var amount = document.getElementById("xena_amount").value;
@@ -208,8 +92,7 @@ function sendXena(){
     }
 
     var message = "طلب شحن Xena Lite\nID: " + id + "\nالمبلغ: " + amount;
-    var url = "https://wa.me/967734722459?text=" + encodeURIComponent(message);
-    window.location.href = url;
+    window.location.href = "https://wa.me/967734722459?text=" + encodeURIComponent(message);
 }
 
 function sendAhlan(){
@@ -222,8 +105,7 @@ function sendAhlan(){
     }
 
     var message = "طلب شحن Ahlan\nID: " + id + "\nالمبلغ: " + amount;
-    var url = "https://wa.me/967734722459?text=" + encodeURIComponent(message);
-    window.location.href = url;
+    window.location.href = "https://wa.me/967734722459?text=" + encodeURIComponent(message);
 }
 </script>
 
