@@ -96,18 +96,18 @@ button{
 <span>🔥 وكالة الفرسان للشحن – سرعة ⚡ أمان 💎 تنفيذ فوري 🚀</span>
 </div>
 
-<!-- XENA (الأزرق) -->
+<!-- XENA (الأزرق فوق) -->
 <div class="section">
-  <img src="https://play-lh.googleusercontent.com/TD4I-kti7jFfQKxtKL29cPT2VvOVFz889B-xRI5oJongYzIuS7djOvbIX2sYjczsJBI" class="app-img">
+  <img src="https://play-lh.googleusercontent.com/fglaX6qREt6w8-QKDeAVBpgIWOecb4u2zjFF27fLpcSVoDVtB2rfTueoOIPADFsdJi-w7A8kElNpdwsoqaD4Ug" class="app-img">
   <h2>شحن Xena</h2>
   <input type="text" id="xena_id" placeholder="اكتب ID هنا">
   <input type="number" id="xena_amount" placeholder="اكتب المبلغ هنا">
   <button onclick="playSound(); sendXena();">🚀 تنفيذ الطلب</button>
 </div>
 
-<!-- AHLAN (القطة) -->
+<!-- AHLAN (الصفرا تحت) -->
 <div class="section">
-  <img src="https://play-lh.googleusercontent.com/fglaX6qREt6w8-QKDeAVBpgIWOecb4u2zjFF27fLpcSVoDVtB2rfTueoOIPADFsdJi-w7A8kElNpdwsoqaD4Ug" class="app-img">
+  <img src="https://play-lh.googleusercontent.com/TD4I-kti7jFfQKxtKL29cPT2VvOVFz889B-xRI5oJongYzIuS7djOvbIX2sYjczsJBI" class="app-img">
   <h2>شحن Ahlan</h2>
   <input type="text" id="ahlan_id" placeholder="اكتب ID هنا">
   <input type="number" id="ahlan_amount" placeholder="اكتب المبلغ هنا">
@@ -132,4 +132,18 @@ function sendXena(){
     var id = document.getElementById("xena_id").value;
     var amount = document.getElementById("xena_amount").value;
     if(id==="" || amount===""){ alert("يرجى إدخال ID والمبلغ"); return; }
-    var msg="طلب شحن Xena\nID: "+id+"\nالمبلغ: "+
+    var msg="طلب شحن Xena\nID: "+id+"\nالمبلغ: "+amount;
+    window.location.href="https://wa.me/967734722459?text="+encodeURIComponent(msg);
+}
+
+function sendAhlan(){
+    var id = document.getElementById("ahlan_id").value;
+    var amount = document.getElementById("ahlan_amount").value;
+    if(id==="" || amount===""){ alert("يرجى إدخال ID والمبلغ"); return; }
+    var msg="طلب شحن Ahlan\nID: "+id+"\nالمبلغ: "+amount;
+    window.location.href="https://wa.me/967734722459?text="+encodeURIComponent(msg);
+}
+</script>
+
+</body>
+</html>
