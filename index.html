@@ -9,14 +9,15 @@
 body{
 margin:0;
 font-family:Arial;
-background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
-url('https://play-lh.googleusercontent.com/TD4I-kti7jFfQKxtKL29cPT2VvOVFz889B-xRI5oJongYzIuS7djOvbIX2sYjczsJBI');
-background-size:cover;
+background: linear-gradient(135deg,#000000,#1a1a1a,#000000);
 color:white;
 text-align:center;
 }
 
-h1{color:gold;}
+h1{
+color:gold;
+margin-top:15px;
+}
 
 .card{
 background:#111;
@@ -30,48 +31,41 @@ max-width:400px;
 
 input{
 width:90%;
-padding:10px;
+padding:12px;
 margin:8px 0;
 border-radius:8px;
 border:none;
+font-size:16px;
 }
 
 button{
 background:gold;
 color:black;
-padding:12px;
+padding:14px;
 width:95%;
 border:none;
 border-radius:10px;
 font-weight:bold;
+font-size:16px;
 cursor:pointer;
 }
 
-button:hover{background:#d4af37;}
+button:hover{
+background:#d4af37;
+}
 
 .social a{
 color:gold;
 margin:8px;
 display:inline-block;
-}
-
-#loginBox{
-display:none;
-background:#000;
-padding:20px;
-border:1px solid gold;
-border-radius:10px;
-position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-width:300px;
+font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- الشعار -->
 <div style="margin-top:20px;">
 <img src="images/logo-forsan.png" width="200">
 </div>
@@ -79,29 +73,25 @@ width:300px;
 <h1>وكالة الفرسان للشحن</h1>
 <p style="color:gold;">⚡ شحن فوري • تنفيذ سريع • أمان وثقة 100% 🚀</p>
 
+<!-- Xena Lite -->
 <div class="card">
 <h2>Xena Lite</h2>
 <img src="https://play-lh.googleusercontent.com/fglaX6qREt6w8-QKDeAVBpgIWOecb4u2zjFF27fLpcSVoDVtB2rfTueoOIPADFsdJi-w7A8kElNpdwsoqaD4Ug" width="120">
 <input type="text" id="xenaId" placeholder="ادخل ID">
 <input type="number" id="xenaAmount" placeholder="ادخل المبلغ">
-<button onclick="checkLogin('Xena Lite','xenaId','xenaAmount')">تنفيذ الطلب 🚀</button>
+<button onclick="sendOrder('Xena Lite','xenaId','xenaAmount')">تنفيذ الطلب 🚀</button>
 </div>
 
+<!-- Ahlan -->
 <div class="card">
 <h2>Ahlan</h2>
 <img src="https://play-lh.googleusercontent.com/TD4I-kti7jFfQKxtKL29cPT2VvOVFz889B-xRI5oJongYzIuS7djOvbIX2sYjczsJBI" width="120">
 <input type="text" id="ahlanId" placeholder="ادخل ID">
 <input type="number" id="ahlanAmount" placeholder="ادخل المبلغ">
-<button onclick="checkLogin('Ahlan','ahlanId','ahlanAmount')">تنفيذ الطلب 🚀</button>
+<button onclick="sendOrder('Ahlan','ahlanId','ahlanAmount')">تنفيذ الطلب 🚀</button>
 </div>
 
-<div id="loginBox">
-<h3>تسجيل دخول</h3>
-<input type="text" id="username" placeholder="اسم المستخدم أو الإيميل">
-<input type="password" id="password" placeholder="كلمة المرور">
-<button onclick="confirmLogin()">دخول</button>
-</div>
-
+<!-- السوشال -->
 <div class="social">
 <h3>تابعنا</h3>
 <a href="https://www.facebook.com/share/1HbPLoHQUw/" target="_blank">فيسبوك</a>
@@ -111,17 +101,13 @@ width:300px;
 <a href="https://youtube.com/channel/UCIyvikuMJJYMuuTd4MCf0Sw" target="_blank">يوتيوب</a>
 </div>
 
+<!-- صوت -->
 <audio id="clickSound">
 <source src="https://www.soundjay.com/buttons/sounds/button-3.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-let selectedApp, selectedId, selectedAmount;
-
-function checkLogin(app,idField,amountField){
-selectedApp=app;
-selectedId=idField;
-selectedAmount=amountField;
+function sendOrder(app,idField,amountField){
 
 var id=document.getElementById(idField).value;
 var amount=document.getElementById(amountField).value;
@@ -131,29 +117,9 @@ alert("يرجى إدخال البيانات");
 return;
 }
 
-document.getElementById("loginBox").style.display="block";
-}
-
-function confirmLogin(){
-var user=document.getElementById("username").value;
-var pass=document.getElementById("password").value;
-
-if(user=="" || pass==""){
-alert("يرجى إدخال بيانات الدخول");
-return;
-}
-
-document.getElementById("loginBox").style.display="none";
-sendOrder();
-}
-
-function sendOrder(){
-var id=document.getElementById(selectedId).value;
-var amount=document.getElementById(selectedAmount).value;
-
 document.getElementById("clickSound").play();
 
-var msg="طلب شحن\nالتطبيق: "+selectedApp+"\nID: "+id+"\nالمبلغ: "+amount;
+var msg="طلب شحن\nالتطبيق: "+app+"\nID: "+id+"\nالمبلغ: "+amount;
 var url="https://wa.me/967734722459?text="+encodeURIComponent(msg);
 
 setTimeout(function(){
