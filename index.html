@@ -7,141 +7,158 @@
 
 <style>
 body{
-    margin:0;
-    font-family:Arial;
-    text-align:center;
-    color:white;
-    background:#0d0d0d;
+margin:0;
+font-family:Arial;
+background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+url('https://play-lh.googleusercontent.com/TD4I-kti7jFfQKxtKL29cPT2VvOVFz889B-xRI5oJongYzIuS7djOvbIX2sYjczsJBI');
+background-size:cover;
+color:white;
+text-align:center;
 }
 
-/* بانر متحرك */
-.marquee{
-    background:linear-gradient(45deg,#d4af37,#b8952f);
-    color:black;
-    padding:10px;
-    font-weight:bold;
-    overflow:hidden;
-    white-space:nowrap;
-}
-.marquee span{
-    display:inline-block;
-    animation:move 12s linear infinite;
-}
-@keyframes move{
-    from{transform:translateX(100%);}
-    to{transform:translateX(-100%);}
-}
+h1{color:gold;}
 
-.section{
-    margin:40px auto;
-    width:90%;
-    max-width:420px;
-    background:#1a1a1a;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 0 20px rgba(212,175,55,0.2);
-}
-
-h2{
-    color:#d4af37;
-    margin-top:15px;
-}
-
-.app-img{
-    width:100px;
-    border-radius:25px;
-    border:2px solid #d4af37;
-    margin-bottom:15px;
-    box-shadow:0 0 15px rgba(212,175,55,0.4);
+.card{
+background:#111;
+border:1px solid gold;
+border-radius:15px;
+padding:20px;
+margin:20px auto;
+width:90%;
+max-width:400px;
 }
 
 input{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:none;
-    border-radius:8px;
+width:90%;
+padding:10px;
+margin:8px 0;
+border-radius:8px;
+border:none;
 }
 
 button{
-    width:100%;
-    background:#d4af37;
-    border:none;
-    padding:12px;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
-    margin-top:10px;
+background:gold;
+color:black;
+padding:12px;
+width:95%;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
 }
 
-.social{
-    margin:40px 0;
-}
+button:hover{background:#d4af37;}
+
 .social a{
-    display:inline-block;
-    margin:8px;
-    padding:10px 15px;
-    background:#222;
-    color:#d4af37;
-    text-decoration:none;
-    border-radius:6px;
-    font-size:14px;
+color:gold;
+margin:8px;
+display:inline-block;
+}
+
+#loginBox{
+display:none;
+background:#000;
+padding:20px;
+border:1px solid gold;
+border-radius:10px;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:300px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="marquee">
-<span>🔥 وكالة الفرسان للشحن – سرعة ⚡ أمان 💎 تنفيذ فوري 🚀</span>
+<div style="margin-top:20px;">
+<img src="images/logo-forsan.png" width="200">
 </div>
 
-<!-- XENA (الأزرق فوق) -->
-<div class="section">
-  <img src="https://play-lh.googleusercontent.com/fglaX6qREt6w8-QKDeAVBpgIWOecb4u2zjFF27fLpcSVoDVtB2rfTueoOIPADFsdJi-w7A8kElNpdwsoqaD4Ug" class="app-img">
-  <h2>شحن Xena</h2>
-  <input type="text" id="xena_id" placeholder="اكتب ID هنا">
-  <input type="number" id="xena_amount" placeholder="اكتب المبلغ هنا">
-  <button onclick="playSound(); sendXena();">🚀 تنفيذ الطلب</button>
+<h1>وكالة الفرسان للشحن</h1>
+<p style="color:gold;">⚡ شحن فوري • تنفيذ سريع • أمان وثقة 100% 🚀</p>
+
+<div class="card">
+<h2>Xena Lite</h2>
+<img src="https://play-lh.googleusercontent.com/fglaX6qREt6w8-QKDeAVBpgIWOecb4u2zjFF27fLpcSVoDVtB2rfTueoOIPADFsdJi-w7A8kElNpdwsoqaD4Ug" width="120">
+<input type="text" id="xenaId" placeholder="ادخل ID">
+<input type="number" id="xenaAmount" placeholder="ادخل المبلغ">
+<button onclick="checkLogin('Xena Lite','xenaId','xenaAmount')">تنفيذ الطلب 🚀</button>
 </div>
 
-<!-- AHLAN (الصفرا تحت) -->
-<div class="section">
-  <img src="https://play-lh.googleusercontent.com/TD4I-kti7jFfQKxtKL29cPT2VvOVFz889B-xRI5oJongYzIuS7djOvbIX2sYjczsJBI" class="app-img">
-  <h2>شحن Ahlan</h2>
-  <input type="text" id="ahlan_id" placeholder="اكتب ID هنا">
-  <input type="number" id="ahlan_amount" placeholder="اكتب المبلغ هنا">
-  <button onclick="playSound(); sendAhlan();">🚀 تنفيذ الطلب</button>
+<div class="card">
+<h2>Ahlan</h2>
+<img src="https://play-lh.googleusercontent.com/TD4I-kti7jFfQKxtKL29cPT2VvOVFz889B-xRI5oJongYzIuS7djOvbIX2sYjczsJBI" width="120">
+<input type="text" id="ahlanId" placeholder="ادخل ID">
+<input type="number" id="ahlanAmount" placeholder="ادخل المبلغ">
+<button onclick="checkLogin('Ahlan','ahlanId','ahlanAmount')">تنفيذ الطلب 🚀</button>
+</div>
+
+<div id="loginBox">
+<h3>تسجيل دخول</h3>
+<input type="text" id="username" placeholder="اسم المستخدم أو الإيميل">
+<input type="password" id="password" placeholder="كلمة المرور">
+<button onclick="confirmLogin()">دخول</button>
 </div>
 
 <div class="social">
-  <a href="https://www.facebook.com/share/14VeeoCR9qf/" target="_blank">فيسبوك</a>
-  <a href="https://www.instagram.com/fares_al_qadasy" target="_blank">انستقرام</a>
-  <a href="https://www.tiktok.com/@fares.96955" target="_blank">تيك توك</a>
-  <a href="https://www.snapchat.com/add/frslthry19" target="_blank">سناب شات</a>
+<h3>تابعنا</h3>
+<a href="https://www.facebook.com/share/1HbPLoHQUw/" target="_blank">فيسبوك</a>
+<a href="https://www.instagram.com/fares_al_qadasy" target="_blank">إنستقرام</a>
+<a href="https://www.tiktok.com/@fares.96955" target="_blank">تيك توك</a>
+<a href="https://www.snapchat.com/add/frslthry19" target="_blank">سناب</a>
+<a href="https://youtube.com/channel/UCIyvikuMJJYMuuTd4MCf0Sw" target="_blank">يوتيوب</a>
 </div>
 
-<audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio>
+<audio id="clickSound">
+<source src="https://www.soundjay.com/buttons/sounds/button-3.mp3" type="audio/mpeg">
+</audio>
 
 <script>
-function playSound(){
-    document.getElementById("clickSound").play();
+let selectedApp, selectedId, selectedAmount;
+
+function checkLogin(app,idField,amountField){
+selectedApp=app;
+selectedId=idField;
+selectedAmount=amountField;
+
+var id=document.getElementById(idField).value;
+var amount=document.getElementById(amountField).value;
+
+if(id=="" || amount==""){
+alert("يرجى إدخال البيانات");
+return;
 }
 
-function sendXena(){
-    var id = document.getElementById("xena_id").value;
-    var amount = document.getElementById("xena_amount").value;
-    if(id==="" || amount===""){ alert("يرجى إدخال ID والمبلغ"); return; }
-    var msg="طلب شحن Xena\nID: "+id+"\nالمبلغ: "+amount;
-    window.location.href="https://wa.me/967734722459?text="+encodeURIComponent(msg);
+document.getElementById("loginBox").style.display="block";
 }
 
-function sendAhlan(){
-    var id = document.getElementById("ahlan_id").value;
-    var amount = document.getElementById("ahlan_amount").value;
-    if(id==="" || amount===""){ alert("يرجى إدخال ID والمبلغ"); return; }
-    var msg="طلب شحن Ahlan\nID: "+id+"\nالمبلغ: "+amount;
-    window.location.href="https://wa.me/967734722459?text="+encodeURIComponent(msg);
+function confirmLogin(){
+var user=document.getElementById("username").value;
+var pass=document.getElementById("password").value;
+
+if(user=="" || pass==""){
+alert("يرجى إدخال بيانات الدخول");
+return;
+}
+
+document.getElementById("loginBox").style.display="none";
+sendOrder();
+}
+
+function sendOrder(){
+var id=document.getElementById(selectedId).value;
+var amount=document.getElementById(selectedAmount).value;
+
+document.getElementById("clickSound").play();
+
+var msg="طلب شحن\nالتطبيق: "+selectedApp+"\nID: "+id+"\nالمبلغ: "+amount;
+var url="https://wa.me/967734722459?text="+encodeURIComponent(msg);
+
+setTimeout(function(){
+window.location.href=url;
+},800);
 }
 </script>
 
